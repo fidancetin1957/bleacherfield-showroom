@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F5F5F5; /* Bleacher Cream */
+  --foreground: #002147; /* Bleacher Navy */
+  
+  --primary: #002147;
+  --primary-foreground: #F5F5F5;
+  
+  --card: #FFFFFF;
+  --card-foreground: #002147;
+  
+  --accent: #E2E8F0;
+  --accent-foreground: #002147;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* Custom Stadium Radii */
+  --radius-stadium: 2rem;
+  --radius-stadium-card: 1.5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-glass {
+  background: rgba(0, 33, 71, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
