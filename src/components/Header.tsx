@@ -50,50 +50,44 @@ const navigation: NavItem[] = [
   { 
     name: 'Football', 
     href: '/category/football',
-    sections: productModels.map(section => ({
-        ...section,
-        items: section.items.map(item => ({ ...item, href: `/category/football${item.href}` }))
-    }))
-  },
-  { 
-    name: 'Baseball', 
-    href: '/category/baseball',
-    sections: productModels.map(section => ({
-        ...section,
-        items: section.items.map(item => ({ ...item, href: `/category/baseball${item.href}` }))
-    }))
+    sections: [
+        { title: 'NFL CONFERENCES', items: [{name: 'AFC Teams', href: '/category/football'}, {name: 'NFC Teams', href: '/category/football'}] },
+        { title: 'COLLEGE (NCAA)', items: [{name: 'SEC Spirit', href: '/category/football'}, {name: 'Big Ten', href: '/category/football'}] },
+        { title: 'BY PRODUCT', items: [{name: 'Hoodies', href: '/category/football'}, {name: 'T-Shirts', href: '/category/football'}] }
+    ]
   },
   { 
     name: 'Basketball', 
     href: '/category/basketball',
-    sections: productModels.map(section => ({
-        ...section,
-        items: section.items.map(item => ({ ...item, href: `/category/basketball${item.href}` }))
-    }))
+    sections: [
+        { title: 'PRO LEAGUES', items: [{name: 'Eastern Conf', href: '/category/basketball'}, {name: 'Western Conf', href: '/category/basketball'}] },
+        { title: 'NBA ESSENTIALS', items: [{name: 'Atlantic Div', href: '/category/basketball'}, {name: 'Pacific Div', href: '/category/basketball'}] },
+        { title: 'BY PRODUCT', items: [{name: 'Hoodies', href: '/category/basketball'}, {name: 'T-Shirts', href: '/category/basketball'}] }
+    ]
   },
   { 
-    name: 'Soccer', 
-    href: '/category/soccer',
-    sections: productModels.map(section => ({
-        ...section,
-        items: section.items.map(item => ({ ...item, href: `/category/soccer${item.href}` }))
-    }))
+    name: 'Baseball', 
+    href: '/category/baseball',
+    sections: [
+        { title: 'MLB LEAGUES', items: [{name: 'American League', href: '/category/baseball'}, {name: 'National League', href: '/category/baseball'}] },
+        { title: 'BY PRODUCT', items: [{name: 'Jersey Style', href: '/category/baseball'}, {name: 'T-Shirts', href: '/category/baseball'}] }
+    ]
   },
   { 
     name: 'Hockey', 
     href: '/category/hockey',
-    sections: productModels.map(section => ({
-        ...section,
-        items: section.items.map(item => ({ ...item, href: `/category/hockey${item.href}` }))
-    }))
+    sections: [
+        { title: 'NHL DIVISIONS', items: [{name: 'Metropolitan', href: '/category/hockey'}, {name: 'Atlantic', href: '/category/hockey'}, {name: 'Pacific', href: '/category/hockey'}] },
+        { title: 'BY PRODUCT', items: [{name: 'Sweatshirts', href: '/category/hockey'}, {name: 'Hoodies', href: '/category/hockey'}] }
+    ]
   },
   { 
-    name: 'Other Sports', 
-    href: '/category/other',
-    sections: productModels.map(section => ({
-        ...section,
-        items: section.items.map(item => ({ ...item, href: `/category/other${item.href}` }))
-    }))
+    name: 'Soccer', 
+    href: '/category/soccer',
+    sections: [
+        { title: 'GAME DAY 2026', items: [{name: 'World Cup Spirit', href: '/category/soccer'}, {name: 'Club Shop', href: '/category/soccer'}] },
+        { title: 'BY PRODUCT', items: [{name: 'T-Shirts', href: '/category/soccer'}, {name: 'Performance', href: '/category/soccer'}] }
+    ]
   },
   { 
     name: 'GAME DAY 📣', 
