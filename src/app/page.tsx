@@ -1,13 +1,31 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProductGrid from "@/components/ProductGrid";
+import ProductMarquee from "@/components/ProductMarquee";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen">
       <Header />
       <Hero />
-      <ProductGrid />
+      
+      <div id="new-arrivals" className="scroll-mt-32">
+        <ProductMarquee />
+      </div>
+
+      <div id="showroom" className="scroll-mt-24">
+        <ProductGrid />
+      </div>
+
+      {/* About / Story Section Placeholder */}
+      <section id="about" className="py-24 bg-primary text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-8">The Bleacher Story</h2>
+            <p className="max-w-2xl mx-auto text-lg text-white/70 leading-relaxed font-medium">
+                Born in the stands, raised in the streets. BleacherField is more than apparel—it's the pulse of the hometown game. Every stitch carries the energy of the final whistle.
+            </p>
+        </div>
+      </section>
       
       {/* Footer Prototype */}
       <footer className="py-20 bg-primary text-white">

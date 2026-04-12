@@ -1,14 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Trophy } from 'lucide-react';
+import { ArrowRight, Trophy, Play } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Hero() {
   return (
     <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
-      {/* Background Decorative Elements */}
+      {/* Background Infrastructure */}
       <div className="absolute top-0 left-0 w-full h-full -z-10 bg-background">
+        {/* Ambient Video Background (Infrastructure) */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-20 pointer-events-none transition-opacity duration-1000"
+          poster="/images/hero-fallback.jpg" // User can provide this later
+        >
+          {/* User will add sources later */}
+          {/* <source src="/videos/hero-ambient.mp4" type="video/mp4" /> */}
+        </video>
+
+        {/* Decorative Gradients for depth */}
         <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[100px]" />
       </div>
@@ -34,7 +48,7 @@ export default function Hero() {
               className="text-5xl md:text-7xl font-bold text-primary leading-[1.1] uppercase tracking-tighter"
             >
               Wear the <br />
-              <span className="text-primary/60">Stadium</span> <br />
+              <span className="text-primary/40">Stadium</span> <br />
               Energy.
             </motion.h1>
 
@@ -61,27 +75,32 @@ export default function Hero() {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="#about"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary/20 text-primary rounded-[1.5rem] font-bold text-lg hover:bg-primary/5 transition-all lg:w-max"
+                href="#style-guide"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary/20 text-primary rounded-[1.5rem] font-bold text-lg hover:bg-primary/5 transition-all lg:w-max group"
               >
-                Our Story
+                <Play className="mr-2 h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                <span>Style Guide</span>
               </Link>
             </motion.div>
           </div>
 
-          {/* Hero Visual Prototype */}
+          {/* Hero Visual Prototype (Stadium Curved Container) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="md:w-1/2 relative"
           >
-            <div className="relative aspect-square max-w-lg mx-auto bg-primary/5 rounded-[3rem] border-2 border-primary/10 flex items-center justify-center overflow-hidden">
-                {/* Image Placeholder with Stadium Feel */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
-                <div className="z-10 text-primary/20 font-black text-8xl rotate-[-15deg] uppercase selection:bg-transparent">
+            <div className="relative aspect-square max-w-lg mx-auto bg-primary/5 rounded-[3rem] border-2 border-primary/10 flex items-center justify-center overflow-hidden shadow-inner group">
+                {/* Visual Placeholder for Video Preview */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+                <div className="z-10 text-primary/10 font-black text-8xl rotate-[-15deg] uppercase selection:bg-transparent transition-all duration-700 group-hover:scale-110 group-hover:rotate-0 group-hover:text-primary/20">
                     Field
                 </div>
+                
+                {/* Subtle Micro-Animations */}
+                <div className="absolute top-10 left-10 w-20 h-20 border border-primary/10 rounded-full animate-ping opacity-20" />
+                <div className="absolute bottom-20 right-20 w-32 h-32 border border-primary/10 rounded-[2rem] animate-pulse opacity-10" />
             </div>
           </motion.div>
         </div>
