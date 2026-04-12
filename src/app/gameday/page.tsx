@@ -10,7 +10,7 @@ const sports = [
     id: 'football',
     name: 'Football',
     count: '24 Items',
-    image: '/football_hub_hero_1776000632938.png',
+    image: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=1200',
     grid: 'md:col-span-2 md:row-span-2',
     color: 'from-blue-900/80'
   },
@@ -18,7 +18,7 @@ const sports = [
     id: 'basketball',
     name: 'Basketball',
     count: '18 Items',
-    image: '/mockups/basketball_hero.webp',
+    image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=800',
     grid: 'md:col-span-1 md:row-span-1',
     color: 'from-orange-900/80'
   },
@@ -26,7 +26,7 @@ const sports = [
     id: 'baseball',
     name: 'Baseball',
     count: '12 Items',
-    image: '/baseball_hub_hero_1776000666018.png',
+    image: 'https://images.unsplash.com/photo-1562077981-4d7eafd44932?auto=format&fit=crop&q=80&w=800',
     grid: 'md:col-span-1 md:row-span-1',
     color: 'from-green-900/80'
   },
@@ -34,7 +34,7 @@ const sports = [
     id: 'hockey',
     name: 'Hockey',
     count: '10 Items',
-    image: '/hockey_hub_hero_1776000650635.png',
+    image: 'https://images.unsplash.com/photo-1515703407324-5f753eed239e?auto=format&fit=crop&q=80&w=800',
     grid: 'md:col-span-1 md:row-span-1',
     color: 'from-slate-900/80'
   },
@@ -42,7 +42,7 @@ const sports = [
     id: 'soccer',
     name: 'Soccer',
     count: '15 Items',
-    image: '/mockups/soccer_hero.webp',
+    image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800',
     grid: 'md:col-span-1 md:row-span-1',
     color: 'from-indigo-900/80'
   }

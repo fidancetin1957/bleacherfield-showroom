@@ -42,63 +42,13 @@ const productModels = [
 ];
 
 const navigation: NavItem[] = [
-  { 
-    name: 'NEW ARRIVALS ⚡', 
-    href: '#new-arrivals', 
-    isHighlight: true 
-  },
-  { 
-    name: 'Football', 
-    href: '/category/football',
-    sections: [
-        { title: 'NFL CONFERENCES', items: [{name: 'AFC Teams', href: '/category/football'}, {name: 'NFC Teams', href: '/category/football'}] },
-        { title: 'COLLEGE (NCAA)', items: [{name: 'SEC Spirit', href: '/category/football'}, {name: 'Big Ten', href: '/category/football'}] },
-        { title: 'BY PRODUCT', items: [{name: 'Hoodies', href: '/category/football'}, {name: 'T-Shirts', href: '/category/football'}] }
-    ]
-  },
-  { 
-    name: 'Basketball', 
-    href: '/category/basketball',
-    sections: [
-        { title: 'PRO LEAGUES', items: [{name: 'Eastern Conf', href: '/category/basketball'}, {name: 'Western Conf', href: '/category/basketball'}] },
-        { title: 'NBA ESSENTIALS', items: [{name: 'Atlantic Div', href: '/category/basketball'}, {name: 'Pacific Div', href: '/category/basketball'}] },
-        { title: 'BY PRODUCT', items: [{name: 'Hoodies', href: '/category/basketball'}, {name: 'T-Shirts', href: '/category/basketball'}] }
-    ]
-  },
-  { 
-    name: 'Baseball', 
-    href: '/category/baseball',
-    sections: [
-        { title: 'MLB LEAGUES', items: [{name: 'American League', href: '/category/baseball'}, {name: 'National League', href: '/category/baseball'}] },
-        { title: 'BY PRODUCT', items: [{name: 'Jersey Style', href: '/category/baseball'}, {name: 'T-Shirts', href: '/category/baseball'}] }
-    ]
-  },
-  { 
-    name: 'Hockey', 
-    href: '/category/hockey',
-    sections: [
-        { title: 'NHL DIVISIONS', items: [{name: 'Metropolitan', href: '/category/hockey'}, {name: 'Atlantic', href: '/category/hockey'}, {name: 'Pacific', href: '/category/hockey'}] },
-        { title: 'BY PRODUCT', items: [{name: 'Sweatshirts', href: '/category/hockey'}, {name: 'Hoodies', href: '/category/hockey'}] }
-    ]
-  },
-  { 
-    name: 'Soccer', 
-    href: '/category/soccer',
-    sections: [
-        { title: 'GAME DAY 2026', items: [{name: 'World Cup Spirit', href: '/category/soccer'}, {name: 'Club Shop', href: '/category/soccer'}] },
-        { title: 'BY PRODUCT', items: [{name: 'T-Shirts', href: '/category/soccer'}, {name: 'Performance', href: '/category/soccer'}] }
-    ]
-  },
-  { 
-    name: 'GAME DAY 📣', 
-    href: '/gameday', 
-    isHighlight: true 
-  },
-  { 
-    name: 'PICKLEBALL 🎾', 
-    href: '/category/pickleball', 
-    isHighlight: true 
-  },
+  { name: 'NEW ARRIVALS ⚡', href: '#new-arrivals', isHighlight: true },
+  { name: 'Football', href: '/category/football' },
+  { name: 'Basketball', href: '/category/basketball' },
+  { name: 'Baseball', href: '/category/baseball' },
+  { name: 'Hockey', href: '/category/hockey' },
+  { name: 'Soccer', href: '/category/soccer' },
+  { name: 'GAME DAY 📣', href: '/gameday', isHighlight: true },
 ];
 
 export default function Header() {
