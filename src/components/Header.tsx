@@ -5,48 +5,95 @@ import { Menu, Search, ShoppingBag, X, ChevronDown, Sparkles } from 'lucide-reac
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const navigation = [
+interface NavItem {
+  name: string;
+  href: string;
+  isHighlight?: boolean;
+  sections?: {
+    title: string;
+    items: { name: string; href: string }[];
+  }[];
+}
+
+const productModels = [
+  {
+    title: 'ADULT',
+    items: [
+      { name: 'T-Shirts', href: '/t-shirts' },
+      { name: 'Sweatshirts', href: '/sweatshirts' },
+      { name: 'Hoodies', href: '/hoodies' },
+    ]
+  },
+  {
+    title: 'YOUTH',
+    items: [
+      { name: 'Youth T-Shirt', href: '/youth-t-shirt' },
+      { name: 'Youth Sweatshirt', href: '/youth-sweatshirt' },
+      { name: 'Youth Hoodie', href: '/youth-hoodie' },
+    ]
+  },
+  {
+    title: 'KIDS & BABY',
+    items: [
+      { name: 'Toddler T-Shirt', href: '/toddler-t-shirt' },
+      { name: 'Baby Suit', href: '/baby-suit' },
+    ]
+  }
+];
+
+const navigation: NavItem[] = [
   { 
-    name: 'New Arrivals', 
+    name: 'NEW ARRIVALS ⚡', 
     href: '#new-arrivals', 
     isHighlight: true 
   },
   { 
     name: 'Football', 
     href: '#football',
-    subItems: [
-      { name: 'T-Shirts', href: '#football-tshirts' },
-      { name: 'Sweatshirts', href: '#football-sweats' },
-      { name: 'Hoodies', href: '#football-hoodies' },
-      { name: 'View All', href: '#football' },
-    ]
+    sections: productModels.map(section => ({
+        ...section,
+        items: section.items.map(item => ({ ...item, href: `#football${item.href}` }))
+    }))
   },
   { 
     name: 'Baseball', 
     href: '#baseball',
-    subItems: [
-      { name: 'T-Shirts', href: '#baseball-tshirts' },
-      { name: 'Sweatshirts', href: '#baseball-sweats' },
-      { name: 'View All', href: '#baseball' },
-    ]
+    sections: productModels.map(section => ({
+        ...section,
+        items: section.items.map(item => ({ ...item, href: `#baseball${item.href}` }))
+    }))
   },
   { 
     name: 'Basketball', 
     href: '#basketball',
-    subItems: [
-      { name: 'T-Shirts', href: '#basketball-tshirts' },
-      { name: 'Hoodies', href: '#basketball-hoodies' },
-      { name: 'View All', href: '#basketball' },
-    ]
+    sections: productModels.map(section => ({
+        ...section,
+        items: section.items.map(item => ({ ...item, href: `#basketball${item.href}` }))
+    }))
   },
   { 
     name: 'Soccer', 
     href: '#soccer',
-    subItems: [
-      { name: 'T-Shirts', href: '#soccer-tshirts' },
-      { name: 'Accessories', href: '#soccer-acc' },
-      { name: 'View All', href: '#soccer' },
-    ]
+    sections: productModels.map(section => ({
+        ...section,
+        items: section.items.map(item => ({ ...item, href: `#soccer${item.href}` }))
+    }))
+  },
+  { 
+    name: 'Hockey', 
+    href: '#hockey',
+    sections: productModels.map(section => ({
+        ...section,
+        items: section.items.map(item => ({ ...item, href: `#hockey${item.href}` }))
+    }))
+  },
+  { 
+    name: 'Other Sports', 
+    href: '#other-sports',
+    sections: productModels.map(section => ({
+        ...section,
+        items: section.items.map(item => ({ ...item, href: `#other${item.href}` }))
+    }))
   },
 ];
 
@@ -69,10 +116,10 @@ export default function Header() {
         scrolled ? 'glass py-2 shadow-sm' : 'bg-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
+          <div className="flex xl:hidden">
             <button
               onClick={() => setIsOpen(true)}
               className="p-2 text-primary focus:outline-none"
@@ -85,7 +132,7 @@ export default function Header() {
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">BF</span>
+                <span className="text-white font-bold text-xl font-serif">BF</span>
               </div>
               <span className="hidden sm:block text-2xl font-bold tracking-tight text-primary uppercase">
                 BleacherField
@@ -94,31 +141,31 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-1 lg:space-x-4 h-full items-center">
+          <nav className="hidden xl:flex space-x-4 h-full items-center">
             {navigation.map((item) => (
               <div 
                 key={item.name} 
                 className="relative group h-full flex items-center"
-                onMouseEnter={() => item.subItems && setActiveDropdown(item.name)}
+                onMouseEnter={() => item.sections && setActiveDropdown(item.name)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 text-sm font-semibold transition-colors tracking-wide rounded-full ${
+                  className={`flex items-center space-x-1 px-3 py-2 text-sm font-bold transition-all tracking-wide rounded-full ${
                     item.isHighlight 
-                      ? 'text-primary bg-primary/5 hover:bg-primary/10' 
-                      : 'text-primary/80 hover:text-primary hover:bg-primary/5'
+                      ? 'text-white bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 scale-105 mx-2' 
+                      : 'text-primary/70 hover:text-primary hover:bg-primary/5'
                   }`}
                 >
                   {item.isHighlight && <Sparkles className="h-3 w-3 mr-1" />}
                   <span>{item.name}</span>
-                  {item.subItems && (
+                  {item.sections && (
                     <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
                   )}
                 </Link>
 
-                {/* Desktop Dropdown */}
-                {item.subItems && (
+                {/* Desktop Mega Dropdown (3 Columns) */}
+                {item.sections && (
                   <AnimatePresence>
                     {activeDropdown === item.name && (
                       <motion.div
@@ -126,17 +173,32 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 w-48 mt-1 p-2 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-primary/5 z-50"
+                        className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] mt-1 p-6 bg-white/95 backdrop-blur-xl rounded-[2.5rem] shadow-2xl border border-primary/5 z-50 grid grid-cols-3 gap-8"
                       >
-                        {item.subItems.map((sub) => (
-                          <Link
-                            key={sub.name}
-                            href={sub.href}
-                            className="block px-4 py-2 text-sm font-medium text-primary/70 hover:text-primary hover:bg-primary/5 rounded-xl transition-colors"
-                          >
-                            {sub.name}
-                          </Link>
+                        {item.sections.map((section) => (
+                          <div key={section.title} className="space-y-4">
+                            <h4 className="text-xs font-black text-primary/30 uppercase tracking-[0.2em] px-2">
+                                {section.title}
+                            </h4>
+                            <div className="flex flex-col space-y-1">
+                                {section.items.map((sub) => (
+                                <Link
+                                    key={sub.name}
+                                    href={sub.href}
+                                    className="block px-3 py-2 text-sm font-semibold text-primary/70 hover:text-primary hover:bg-primary/5 rounded-xl transition-colors"
+                                >
+                                    {sub.name}
+                                </Link>
+                                ))}
+                            </div>
+                          </div>
                         ))}
+                        
+                        {/* Featured Visual in Menu */}
+                        <div className="col-span-3 mt-4 pt-4 border-t border-primary/5 flex items-center justify-between px-2">
+                            <span className="text-xs font-medium text-primary/40 uppercase">BleacherField Exclusive Showroom</span>
+                            <Link href={item.href} className="text-xs font-bold text-primary hover:underline">View All Trends &rarr;</Link>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -147,7 +209,7 @@ export default function Header() {
 
           {/* Action Icons */}
           <div className="flex items-center space-x-4">
-            <button className="p-2 text-primary hover:bg-primary/5 rounded-full transition-colors">
+            <button className="p-2 text-primary hover:bg-primary/5 rounded-full transition-colors hidden sm:block">
               <Search className="h-5 w-5" />
             </button>
             <Link href="https://etsy.com" className="p-2 text-primary hover:bg-primary/5 rounded-full transition-colors relative">
@@ -167,28 +229,28 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50"
+              className="fixed inset-0 bg-primary/20 backdrop-blur-sm z-50"
             />
             <motion.div
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 left-0 w-[85%] max-w-sm bg-background shadow-2xl z-50 p-6 flex flex-col overflow-y-auto"
+              className="fixed inset-y-0 left-0 w-[90%] max-w-sm bg-background shadow-2xl z-50 p-6 flex flex-col overflow-y-auto"
             >
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center space-x-2">
                     <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">BF</span>
+                        <span className="text-white font-bold text-sm font-serif">BF</span>
                     </div>
-                    <span className="text-xl font-bold text-primary">MENU</span>
+                    <span className="text-xl font-bold text-primary uppercase tracking-tighter">BleacherField</span>
                 </div>
-                <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-primary/5 rounded-full">
+                <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-primary/5 rounded-full transition-colors">
                   <X className="h-6 w-6 text-primary" />
                 </button>
               </div>
 
-              <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-1">
                 {navigation.map((item) => (
                   <MobileNavItem key={item.name} item={item} setIsOpen={setIsOpen} />
                 ))}
@@ -198,11 +260,12 @@ export default function Header() {
                 <Link 
                   href="https://etsy.com"
                   onClick={() => setIsOpen(false)}
-                  className="w-full flex items-center justify-center space-x-2 bg-primary text-white py-4 rounded-[1.5rem] font-bold shadow-lg shadow-primary/20"
+                  className="w-full flex items-center justify-center space-x-2 bg-primary text-white py-4 rounded-[1.5rem] font-bold shadow-lg shadow-primary/20 active:scale-95 transition-transform"
                 >
                   <ShoppingBag className="h-5 w-5" />
                   <span>Shop on Etsy</span>
                 </Link>
+                <p className="text-center text-[10px] text-primary/30 mt-4 font-bold uppercase tracking-[0.3em]">Hometown Spirit • Since 2024</p>
               </div>
             </motion.div>
           </>
@@ -212,15 +275,19 @@ export default function Header() {
   );
 }
 
-function MobileNavItem({ item, setIsOpen }: { item: any; setIsOpen: any }) {
+function MobileNavItem({ item, setIsOpen }: { item: NavItem; setIsOpen: any }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  if (!item.subItems) {
+  if (!item.sections) {
     return (
       <Link
         href={item.href}
         onClick={() => setIsOpen(false)}
-        className={`flex items-center py-4 px-2 text-2xl font-bold text-primary border-b border-primary/5 ${item.isHighlight ? 'text-primary' : ''}`}
+        className={`flex items-center py-4 px-2 text-2xl font-black rounded-2xl ${
+            item.isHighlight 
+                ? 'text-primary bg-primary/5 mb-2' 
+                : 'text-primary'
+        }`}
       >
         {item.isHighlight && <Sparkles className="h-5 w-5 mr-2 text-primary" />}
         {item.name}
@@ -229,10 +296,10 @@ function MobileNavItem({ item, setIsOpen }: { item: any; setIsOpen: any }) {
   }
 
   return (
-    <div className="border-b border-primary/5">
+    <div className="bg-primary/5 rounded-[2rem] p-2 mb-2">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between py-4 px-2 text-2xl font-bold text-primary"
+        className="w-full flex items-center justify-between py-4 px-4 text-2xl font-black text-primary"
       >
         <span>{item.name}</span>
         <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
@@ -244,18 +311,25 @@ function MobileNavItem({ item, setIsOpen }: { item: any; setIsOpen: any }) {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden bg-primary/5 rounded-2xl mb-4"
+            className="overflow-hidden"
           >
-            <div className="flex flex-col py-2">
-              {item.subItems.map((sub: any) => (
-                <Link
-                  key={sub.name}
-                  href={sub.href}
-                  onClick={() => setIsOpen(false)}
-                  className="px-6 py-3 text-lg font-semibold text-primary/70 hover:text-primary transition-colors"
-                >
-                  {sub.name}
-                </Link>
+            <div className="flex flex-col space-y-6 pb-6 pt-2 px-4">
+              {item.sections.map((section) => (
+                <div key={section.title} className="space-y-3">
+                    <h4 className="text-[10px] font-black text-primary/30 tracking-[0.4em] uppercase">{section.title}</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                        {section.items.map((sub: any) => (
+                        <Link
+                            key={sub.name}
+                            href={sub.href}
+                            onClick={() => setIsOpen(false)}
+                            className="bg-white/50 backdrop-blur-sm px-4 py-3 text-sm font-bold text-primary/80 rounded-xl active:bg-primary/10 transition-colors"
+                        >
+                            {sub.name}
+                        </Link>
+                        ))}
+                    </div>
+                </div>
               ))}
             </div>
           </motion.div>
