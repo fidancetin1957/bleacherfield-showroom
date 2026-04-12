@@ -95,6 +95,11 @@ const navigation: NavItem[] = [
         items: section.items.map(item => ({ ...item, href: `#other${item.href}` }))
     }))
   },
+  { 
+    name: 'GAME DAY 📣', 
+    href: '/gameday', 
+    isHighlight: true 
+  },
 ];
 
 export default function Header() {
