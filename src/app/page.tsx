@@ -109,7 +109,7 @@ export default function Home() {
           </div>
           
           <div className="pt-10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm font-bold text-white/40 uppercase tracking-widest">
-            <p>© 2026 BleacherField • v1.1.0_Original_Final_Master_Seal • Hometown Spirit.</p>
+            <p>© 2026 BleacherField • v1.2.0_Pillow_Optimized_Master • Hometown Spirit.</p>
             <div className="flex space-x-8">
               <a href="#" className="hover:text-white transition-colors">Instagram</a>
               <a href="#" className="hover:text-white transition-colors">Pinterest</a>
