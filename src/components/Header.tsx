@@ -105,9 +105,9 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 text-sm font-bold transition-all tracking-wide rounded-full ${
+                  className={`flex items-center space-x-1 px-4 py-1.5 text-xs font-black transition-all tracking-[0.1em] rounded-full ${
                     item.isHighlight 
-                      ? 'text-white bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 scale-105 mx-2' 
+                      ? 'text-white bg-primary hover:bg-primary/90 shadow-md shadow-primary/10 active:scale-95' 
                       : 'text-primary/70 hover:text-primary hover:bg-primary/5'
                   }`}
                 >
