@@ -19,7 +19,7 @@ const sports = [
     id: 'baseball',
     name: 'Baseball',
     count: '12 Items',
-    image: '/images/baseball.webp',
+    image: '/images/baseball.png',
     grid: 'md:col-start-1 md:row-start-2',
     color: 'from-green-900/80'
   },
@@ -27,7 +27,7 @@ const sports = [
     id: 'football',
     name: 'Football',
     count: '24 Items',
-    image: '/images/football.webp',
+    image: '/images/football.png',
     grid: 'md:col-start-2 md:row-span-2 md:row-start-1 h-full',
     color: 'from-blue-900/80'
   },
@@ -35,7 +35,7 @@ const sports = [
     id: 'hockey',
     name: 'Hockey',
     count: '10 Items',
-    image: '/images/hockey.webp',
+    image: '/images/hockey.png',
     grid: 'md:col-start-3 md:row-start-1',
     color: 'from-slate-900/80'
   },
