@@ -94,6 +94,11 @@ const navigation: NavItem[] = [
     href: '/gameday', 
     isHighlight: true 
   },
+  { 
+    name: 'PICKLEBALL 🎾', 
+    href: '/category/pickleball', 
+    isHighlight: true 
+  },
 ];
 
 export default function Header() {

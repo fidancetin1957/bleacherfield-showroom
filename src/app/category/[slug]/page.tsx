@@ -126,6 +126,46 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                 <p className="text-primary/40 font-bold uppercase tracking-widest">No products found in this boutique yet.</p>
               </div>
             )}
+
+            {/* SEO Editorial Section - Fashion & Spirit Guide */}
+            <div className="mt-40 pt-20 border-t border-primary/10">
+                <article className="max-w-4xl mx-auto space-y-12">
+                    <div className="space-y-4">
+                        <span className="text-[10px] font-black text-primary/30 uppercase tracking-[0.5em]">Showroom Editorial</span>
+                        <h2 className="text-4xl md:text-6xl font-black text-primary uppercase tracking-tighter leading-none">
+                            The Ultimate <br />
+                            <span className="text-primary/20 italic">Gameday Style Guide.</span>
+                        </h2>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-sm leading-relaxed text-primary/60 font-medium">
+                        <div className="space-y-6">
+                            <p>
+                                Elevating your stadium ritual starts with more than just a logo. At BleacherField, our <span className="text-primary font-bold italic underline decoration-primary/20 transition-all hover:decoration-primary cursor-default">Stadium Collection</span> is designed for the fans who carry the coordinates of their home field in their soul. Whether you’re layering a heavyweight hoodie for a late-season freeze or styling a minimalist tee for a spring opener, our collection bridges the gap between high-fashion and street-level spirit.
+                            </p>
+                            <p>
+                                The <span className="text-primary font-bold italic underline decoration-primary/20 transition-all hover:decoration-primary cursor-default">Tailgate Club</span> aesthetic isn't just about the parking lot; it's about the heritage of the hunt. Every design in this collection is a nod to the shared ceremonies of the bleacher faithful.
+                            </p>
+                        </div>
+                        <div className="space-y-6">
+                            <p>
+                                Our <span className="text-primary font-bold italic underline decoration-primary/20 transition-all hover:decoration-primary cursor-default">City Crossover</span> series defines the new era of hometown pride. We believe "Chicago is for Bears" and "Seattle lives for the Diamond" — it's a deep-rooted location identity that transcends simple merchandising. 
+                            </p>
+                            <p>
+                                Pairing our <span className="text-primary font-bold underline decoration-primary/10">{categoryName}</span> range with coordinate-stamped accessories or vintage denim creates a look that is both timeless and tailored to the local pulse. Explore the collection and wear your coordinates with pride.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-4 pt-8">
+                        {['Stadium Coordinates', 'Tailgate Legend', 'Hometown Pride', 'Bleacher Faithful', 'Coordinates Gear'].map(tag => (
+                            <span key={tag} className="text-[9px] font-black text-primary/20 uppercase tracking-widest border border-primary/5 px-4 py-2 rounded-full italic hover:bg-primary/5 transition-colors cursor-default">
+                                #{tag.replace(' ', '')}
+                            </span>
+                        ))}
+                    </div>
+                </article>
+            </div>
           </div>
         </div>
       </div>
