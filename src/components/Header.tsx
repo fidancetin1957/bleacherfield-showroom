@@ -105,10 +105,10 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-1 px-3 py-1 text-[10px] font-black transition-all tracking-[0.15em] rounded-full ${
+                  className={`flex items-center space-x-1 px-2 py-1 text-[10px] font-black transition-all tracking-[0.2em] uppercase ${
                     item.isHighlight 
-                      ? 'text-white bg-primary hover:bg-primary/90 shadow-sm shadow-primary/5 active:scale-95' 
-                      : 'text-primary/70 hover:text-primary hover:bg-primary/5'
+                      ? 'text-primary border-b border-primary/20 hover:border-primary pb-0.5' 
+                      : 'text-primary/50 hover:text-primary'
                   }`}
                 >
                   {item.isHighlight && <Sparkles className="h-3 w-3 mr-1" />}

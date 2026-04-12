@@ -10,7 +10,7 @@ const sports = [
     id: 'football',
     name: 'Football',
     count: '24 Items',
-    image: 'https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&q=80&w=1200',
     grid: 'md:col-span-2 md:row-span-2',
     color: 'from-blue-900/80'
   },
@@ -26,7 +26,7 @@ const sports = [
     id: 'baseball',
     name: 'Baseball',
     count: '12 Items',
-    image: 'https://images.unsplash.com/photo-1471295253337-3ceaaedca402?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1508344934647-73d74f762265?auto=format&fit=crop&q=80&w=800',
     grid: 'md:col-span-1 md:row-span-1',
     color: 'from-green-900/80'
   },
@@ -34,7 +34,7 @@ const sports = [
     id: 'hockey',
     name: 'Hockey',
     count: '10 Items',
-    image: 'https://images.unsplash.com/photo-1515703273155-2f995356509a?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1515703407324-5f753eed239e?auto=format&fit=crop&q=80&w=800',
     grid: 'md:col-span-1 md:row-span-1',
     color: 'from-slate-900/80'
   },
