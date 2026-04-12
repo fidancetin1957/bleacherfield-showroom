@@ -58,7 +58,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg md:text-xl text-primary/70 max-w-lg leading-relaxed font-medium"
             >
-              Premium quality sports apparel designed for the true enthusiast. From the bleachers to the streets, carry the spirit of the game wherever you go.
+              SYNC TEST - Premium quality sports apparel designed for the true enthusiast. From the bleachers to the streets, carry the spirit of the game wherever you go.
             </motion.p>
 
             <motion.div

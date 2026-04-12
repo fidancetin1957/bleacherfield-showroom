@@ -26,7 +26,7 @@ const sports = [
     id: 'baseball',
     name: 'Baseball',
     count: '12 Items',
-    image: 'https://images.unsplash.com/photo-1562077981-4d7eafd44932?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1508344934647-73d74f762265?auto=format&fit=crop&q=80&w=800',
     grid: 'md:col-span-1 md:row-span-1',
     color: 'from-green-900/80'
   },
