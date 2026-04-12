@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Trophy, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 const sports = [
@@ -10,7 +11,7 @@ const sports = [
     id: 'football',
     name: 'Football',
     count: '24 Items',
-    image: '/images/football.png',
+    image: 'https://images.unsplash.com/photo-1541252260730-0412e8e2108e',
     grid: 'md:col-span-2 md:row-span-2',
     color: 'from-blue-900/80'
   },
@@ -18,16 +19,16 @@ const sports = [
     id: 'basketball',
     name: 'Basketball',
     count: '18 Items',
-    image: '/images/basketball.png',
-    grid: 'md:col-span-1 md:row-span-1',
+    image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc',
+    grid: 'md:col-span-2 md:row-span-1',
     color: 'from-orange-900/80'
   },
   {
     id: 'baseball',
     name: 'Baseball',
     count: '12 Items',
-    image: '/images/baseball.png',
-    grid: 'md:col-span-1 md:row-span-1',
+    image: 'https://images.unsplash.com/photo-1508344934647-73d74f762265',
+    grid: 'md:col-span-2 md:row-span-1',
     color: 'from-green-900/80'
   },
   {
@@ -35,15 +36,15 @@ const sports = [
     name: 'Hockey',
     count: '10 Items',
     image: '/images/hockey.png',
-    grid: 'md:col-span-1 md:row-span-1',
+    grid: 'md:col-span-2 md:row-span-1',
     color: 'from-slate-900/80'
   },
   {
     id: 'soccer',
     name: 'Soccer',
     count: '15 Items',
-    image: '/images/soccer.png',
-    grid: 'md:col-span-1 md:row-span-1',
+    image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018',
+    grid: 'md:col-span-2 md:row-span-1',
     color: 'from-indigo-900/80'
   }
 ];
@@ -71,8 +72,8 @@ export default function GamedayHub() {
           </p>
         </div>
 
-        {/* Mosaic Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto md:h-[800px]">
+        {/* Mosaic Grid - REBALANCED 4-COLUMN MOSAIC */}
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[800px]">
           {sports.map((sport, idx) => (
             <motion.div
               key={sport.id}
@@ -82,10 +83,13 @@ export default function GamedayHub() {
               className={`group relative overflow-hidden rounded-[2.5rem] bg-primary/5 ${sport.grid}`}
             >
               <Link href={`#${sport.id}`} className="block w-full h-full relative">
-                <img 
+                <Image 
                   src={sport.image} 
                   alt={sport.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  fill
+                  sizes={sport.grid.includes('col-span-4') ? '100vw' : '50vw'}
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  priority={idx < 2}
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${sport.color} to-transparent opacity-60 group-hover:opacity-80 transition-opacity`} />
                 
@@ -120,5 +124,7 @@ export default function GamedayHub() {
         </div>
       </div>
     </main>
+  );
+}
   );
 }
