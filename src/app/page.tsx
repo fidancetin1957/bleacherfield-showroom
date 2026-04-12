@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       
       {/* Game Day Hub Spotlight - REFINED BANNER */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10 pb-20">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10 pb-20">
         <Link href="/gameday" className="group block">
           <div className="relative overflow-hidden rounded-[2.5rem] bg-[#002147] p-6 md:p-10 shadow-xl transition-transform duration-500 group-hover:scale-[1.01]">
             {/* Stadium Texture Overlay */}
