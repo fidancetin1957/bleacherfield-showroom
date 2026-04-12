@@ -48,7 +48,6 @@ const navigation: NavItem[] = [
   { name: 'Baseball', href: '/category/baseball' },
   { name: 'Hockey', href: '/category/hockey' },
   { name: 'Soccer', href: '/category/soccer' },
-  { name: 'GAME DAY 📣', href: '/gameday', isHighlight: true },
 ];
 
 export default function Header() {

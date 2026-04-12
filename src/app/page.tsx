@@ -11,8 +11,8 @@ export default function Home() {
       <Header />
       <Hero />
       
-      {/* Game Day Hub Spotlight - REFINED BANNER */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10 pb-20">
+      {/* Game Day Hub Spotlight - NARROWED & SEALED */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10 pb-20">
         <Link href="/gameday" className="group block">
           <div className="relative overflow-hidden rounded-[2.5rem] bg-[#002147] p-6 md:p-10 shadow-xl transition-transform duration-500 group-hover:scale-[1.01]">
             {/* Stadium Texture Overlay */}
@@ -29,7 +29,7 @@ export default function Home() {
                   Game Day <br />
                   <span className="text-white/30 italic">Unleashed.</span>
                 </h2>
-                <p className="text-white/40 font-bold max-w-sm text-sm leading-relaxed">
+                <p className="text-white/40 font-bold max-w-md text-sm leading-relaxed">
                   Experience our curated stadium collections. From the sidelines to the bleachers, suiting up the entire family.
                 </p>
               </div>
