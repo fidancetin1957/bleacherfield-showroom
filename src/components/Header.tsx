@@ -49,50 +49,50 @@ const navigation: NavItem[] = [
   },
   { 
     name: 'Football', 
-    href: '#football',
+    href: '/category/football',
     sections: productModels.map(section => ({
         ...section,
-        items: section.items.map(item => ({ ...item, href: `#football${item.href}` }))
+        items: section.items.map(item => ({ ...item, href: `/category/football${item.href}` }))
     }))
   },
   { 
     name: 'Baseball', 
-    href: '#baseball',
+    href: '/category/baseball',
     sections: productModels.map(section => ({
         ...section,
-        items: section.items.map(item => ({ ...item, href: `#baseball${item.href}` }))
+        items: section.items.map(item => ({ ...item, href: `/category/baseball${item.href}` }))
     }))
   },
   { 
     name: 'Basketball', 
-    href: '#basketball',
+    href: '/category/basketball',
     sections: productModels.map(section => ({
         ...section,
-        items: section.items.map(item => ({ ...item, href: `#basketball${item.href}` }))
+        items: section.items.map(item => ({ ...item, href: `/category/basketball${item.href}` }))
     }))
   },
   { 
     name: 'Soccer', 
-    href: '#soccer',
+    href: '/category/soccer',
     sections: productModels.map(section => ({
         ...section,
-        items: section.items.map(item => ({ ...item, href: `#soccer${item.href}` }))
+        items: section.items.map(item => ({ ...item, href: `/category/soccer${item.href}` }))
     }))
   },
   { 
     name: 'Hockey', 
-    href: '#hockey',
+    href: '/category/hockey',
     sections: productModels.map(section => ({
         ...section,
-        items: section.items.map(item => ({ ...item, href: `#hockey${item.href}` }))
+        items: section.items.map(item => ({ ...item, href: `/category/hockey${item.href}` }))
     }))
   },
   { 
     name: 'Other Sports', 
-    href: '#other-sports',
+    href: '/category/other',
     sections: productModels.map(section => ({
         ...section,
-        items: section.items.map(item => ({ ...item, href: `#other${item.href}` }))
+        items: section.items.map(item => ({ ...item, href: `/category/other${item.href}` }))
     }))
   },
   { 

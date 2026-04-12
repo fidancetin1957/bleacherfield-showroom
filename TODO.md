@@ -23,5 +23,12 @@ Bu liste, simülasyon aşamasında kesinleşen kararlar doğrultusunda güncelle
 - [X] **Luxury Navigation Upgrade:** Mega Menu, New Arrivals ve 3 sütunlu (Adult/Youth/Kids) yapı.
 - [X] **Dynamic Breadcrumbs:** Sayfalar arası geçişi sağlayan lüks navigasyon butonları.
 - [X] **Game Day Hub:** `.com/gameday` butik sayfası ve özel stadyum temalı tasarımı.
-- [ ] **GSC Happiness:** Sitemap.xml, Robots.txt ve Schema markup'ların "mükemmel" seviyede kodlanması.
+- [ ] **Automated SEO Engine:** Next.js 15 dinamik `sitemap.ts` ve `robots.ts` altyapısı (Otomatik güncellenen yapı).
+- [ ] **AI Scent Removal:** Sitenin kalıcı metinlerinde (Hero, Footer vb.) insan kokusunu artırma çalışması.
+- [ ] **GSC Happiness:** Schema markup'ların (Product/Organization) kodlanması.
 - [ ] **Automated Image SEO:** Marka adına ve ürün tipine göre optimize edilmiş görsel isimlendirme ve Alt-Text enjeksiyonu.
+
+## ✍️ İçerik & Blog Sistemi
+- [ ] **Editorial Style Guide:** "Maç Günü Kombinleri" üzerine zamansız blog içerikleri.
+- [ ] **Blog/Content Infrastructure:** Yazıları ve görselleri kusursuz sergileyecek olan içerik yönetim altyapısı.
+- [ ] **Product Storytelling:** Tasarımları hikayeleştiren ve varyasyonları bağlayan detay sayfaları.
