@@ -1,6 +1,7 @@
 'use client';
 
-import { use, useState, useMemo } from 'react';
+import { use, useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
 import ProductCard from '@/components/ProductCard';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -10,12 +11,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
+  const searchParams = useSearchParams();
   const categoryName = slug.charAt(0).toUpperCase() + slug.slice(1);
 
   // State for filtering
-  const [activeTeamId, setActiveTeamId] = useState<string | null>(null);
-  const [activeRole, setActiveRole] = useState('All');
-  const [activeModel, setActiveModel] = useState<string | null>(null);
+  const [activeTeamId, setActiveTeamId] = useState<string | null>(searchParams.get('team'));
+  const [activeRole, setActiveRole] = useState(searchParams.get('role') || 'All');
+  const [activeModel, setActiveModel] = useState<string | null>(searchParams.get('model'));
+  const [activeAudience, setActiveAudience] = useState<string | null>(searchParams.get('audience'));
+
+  // Sync state with URL when params change (for browser back/forward and direct links)
+  useEffect(() => {
+    setActiveTeamId(searchParams.get('team'));
+    setActiveRole(searchParams.get('role') || 'All');
+    setActiveModel(searchParams.get('model'));
+    setActiveAudience(searchParams.get('audience'));
+  }, [searchParams]);
 
   // Get active team data for color transformation
   const selectedFranchise = useMemo(() => 
@@ -26,13 +37,24 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
   // Filter products based on Sidebar choices
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
+      // 1. Sport Category Match
       const matchCategory = p.category.toLowerCase() === slug.toLowerCase();
+      
+      // 2. Audience Match (Adult, Youth)
+      const matchAudience = !activeAudience || p.audience === activeAudience;
+      
+      // 3. Team Match
       const matchTeam = !activeTeamId || p.franchiseId === activeTeamId;
+      
+      // 4. Role Match (Mom, Dad, etc.)
       const matchRole = activeRole === 'All' || p.role?.includes(activeRole);
+      
+      // 5. Model Match
       const matchModel = !activeModel || p.model === activeModel;
-      return matchCategory && matchTeam && matchRole && matchModel;
-    }).sort((a, b) => (a.isNew ? -1 : 1)); // Corrected sort logic
-  }, [slug, activeTeamId, activeRole, activeModel]);
+      
+      return matchCategory && matchAudience && matchTeam && matchRole && matchModel;
+    }).sort((a, b) => (a.isNew ? -1 : 1));
+  }, [slug, activeTeamId, activeRole, activeModel, activeAudience]);
 
   return (
     <main 
@@ -69,6 +91,20 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                 <p className="max-w-md text-primary/40 font-bold text-sm uppercase tracking-widest leading-relaxed">
                     Premium {activeTeamId ? selectedFranchise?.name : categoryName} spirit wear curated for the hometown faithful.
                 </p>
+                
+                {/* Active Category Indicators */}
+                <div className="mt-6 flex flex-wrap gap-2">
+                    {activeAudience && (
+                        <span className="px-3 py-1 bg-primary text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                            AUDIENCE: {activeAudience}
+                        </span>
+                    )}
+                    {activeModel && (
+                        <span className="px-3 py-1 bg-primary text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                            MODEL: {activeModel}
+                        </span>
+                    )}
+                </div>
             </div>
         </div>
 
@@ -89,7 +125,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                     Displaying {filteredProducts.length} Results
                 </span>
                 <div className="flex items-center space-x-2">
-                    {['t-shirt', 'sweatshirt', 'hoodie'].map(model => (
+                    {['t-shirt', 'sweatshirt', 'hoodie', 'toddler-tee', 'baby-suit'].map(model => (
                         <button 
                             key={model}
                             onClick={() => setActiveModel(activeModel === model ? null : model)}
@@ -102,7 +138,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                                 backgroundColor: activeModel === model && selectedFranchise ? selectedFranchise.colors.primary : '' 
                             }}
                         >
-                            {model}s
+                            {model.replace('-', ' ')}s
                         </button>
                     ))}
                 </div>
@@ -123,7 +159,18 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
               </div>
             ) : (
               <div className="py-32 text-center bg-primary/5 rounded-[3rem]">
-                <p className="text-primary/40 font-bold uppercase tracking-widest">No products found in this boutique yet.</p>
+                <p className="text-primary/40 font-bold uppercase tracking-widest">No products found for this selection yet.</p>
+                <button 
+                    onClick={() => {
+                        setActiveAudience(null);
+                        setActiveModel(null);
+                        setActiveTeamId(null);
+                        setActiveRole('All');
+                    }}
+                    className="mt-4 text-[10px] font-black underline uppercase tracking-widest text-primary hover:text-primary/60"
+                >
+                    Clear All Filters
+                </button>
               </div>
             )}
 

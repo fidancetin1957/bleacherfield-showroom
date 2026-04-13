@@ -5,6 +5,18 @@ import { Menu, Search, ShoppingBag, X, ChevronDown, Sparkles } from 'lucide-reac
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+interface NavSection {
+  title: string;
+  items: { name: string; href: string }[];
+}
+
+interface NavItem {
+  name: string;
+  href: string;
+  isHighlight?: boolean;
+  sections?: NavSection[];
+}
+
 const navigation: NavItem[] = [
   { name: 'NEW ARRIVALS ⚡', href: '#new-arrivals', isHighlight: true },
   { 
@@ -12,19 +24,21 @@ const navigation: NavItem[] = [
     href: '/category/football',
     sections: [
         {
-            title: 'NFL Top Teams',
+            title: 'Adult',
             items: [
-                { name: 'Kansas City Chiefs', href: '/category/football?team=chiefs' },
-                { name: 'Dallas Cowboys', href: '/category/football?team=cowboys' },
-                { name: 'Philadelphia Eagles', href: '/category/football?team=eagles' },
-                { name: 'SF 49ers', href: '/category/football?team=49ers' },
+                { name: 'T-Shirts', href: '/category/football?audience=adult&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/football?audience=adult&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/football?audience=adult&model=hoodie' },
             ]
         },
         {
-            title: 'Style',
+            title: 'Youth',
             items: [
-                { name: 'Stadium Coordinates', href: '/category/football?style=coords' },
-                { name: 'Vintage Gameday', href: '/category/football?style=vintage' },
+                { name: 'T-Shirts', href: '/category/football?audience=youth&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/football?audience=youth&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/football?audience=youth&model=hoodie' },
+                { name: 'Toddler Tee', href: '/category/football?audience=youth&model=toddler-tee' },
+                { name: 'Baby Suit', href: '/category/football?audience=youth&model=baby-suit' },
             ]
         }
     ]
@@ -34,12 +48,21 @@ const navigation: NavItem[] = [
     href: '/category/basketball',
     sections: [
         {
-            title: 'NBA Legends',
+            title: 'Adult',
             items: [
-                { name: 'LA Lakers', href: '/category/basketball?team=lakers' },
-                { name: 'Chicago Bulls', href: '/category/basketball?team=bulls' },
-                { name: 'Boston Celtics', href: '/category/basketball?team=celtics' },
-                { name: 'Golden State Warriors', href: '/category/basketball?team=warriors' },
+                { name: 'T-Shirts', href: '/category/basketball?audience=adult&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/basketball?audience=adult&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/basketball?audience=adult&model=hoodie' },
+            ]
+        },
+        {
+            title: 'Youth',
+            items: [
+                { name: 'T-Shirts', href: '/category/basketball?audience=youth&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/basketball?audience=youth&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/basketball?audience=youth&model=hoodie' },
+                { name: 'Toddler Tee', href: '/category/basketball?audience=youth&model=toddler-tee' },
+                { name: 'Baby Suit', href: '/category/basketball?audience=youth&model=baby-suit' },
             ]
         }
     ]
@@ -49,25 +72,45 @@ const navigation: NavItem[] = [
     href: '/category/baseball',
     sections: [
         {
-            title: 'MLB Classics',
+            title: 'Adult',
             items: [
-                { name: 'NY Yankees', href: '/category/baseball?team=yankees' },
-                { name: 'LA Dodgers', href: '/category/baseball?team=dodgers' },
-                { name: 'Chicago Cubs', href: '/category/baseball?team=cubs' },
+                { name: 'T-Shirts', href: '/category/baseball?audience=adult&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/baseball?audience=adult&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/baseball?audience=adult&model=hoodie' },
+            ]
+        },
+        {
+            title: 'Youth',
+            items: [
+                { name: 'T-Shirts', href: '/category/baseball?audience=youth&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/baseball?audience=youth&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/baseball?audience=youth&model=hoodie' },
+                { name: 'Toddler Tee', href: '/category/baseball?audience=youth&model=toddler-tee' },
+                { name: 'Baby Suit', href: '/category/baseball?audience=youth&model=baby-suit' },
             ]
         }
     ]
   },
   { 
-    name: 'NHL (Hockey)', 
+    name: 'Hockey', 
     href: '/category/hockey',
     sections: [
         {
-            title: 'NHL Cult',
+            title: 'Adult',
             items: [
-                { name: 'Anaheim Ducks', href: '/category/hockey?team=ducks' },
-                { name: 'Boston Bruins', href: '/category/hockey?team=bruins' },
-                { name: 'Chicago Blackhawks', href: '/category/hockey?team=blackhawks' },
+                { name: 'T-Shirts', href: '/category/hockey?audience=adult&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/hockey?audience=adult&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/hockey?audience=adult&model=hoodie' },
+            ]
+        },
+        {
+            title: 'Youth',
+            items: [
+                { name: 'T-Shirts', href: '/category/hockey?audience=youth&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/hockey?audience=youth&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/hockey?audience=youth&model=hoodie' },
+                { name: 'Toddler Tee', href: '/category/hockey?audience=youth&model=toddler-tee' },
+                { name: 'Baby Suit', href: '/category/hockey?audience=youth&model=baby-suit' },
             ]
         }
     ]
@@ -77,52 +120,28 @@ const navigation: NavItem[] = [
     href: '/category/soccer',
     sections: [
         {
-            title: 'Global Trends',
+            title: 'Adult',
             items: [
-                { name: 'Inter Miami', href: '/category/soccer?team=miami' },
-                { name: 'World Cup 2026', href: '/category/soccer?trend=wc26' },
-            ]
-        }
-    ]
-  },
-  { 
-    name: 'Adult', 
-    href: '/category/adult',
-    sections: [
-        {
-            title: 'Essentials',
-            items: [
-                { name: 'T-Shirts', href: '/category/adult?model=t-shirt' },
-                { name: 'Sweatshirts', href: '/category/adult?model=sweatshirt' },
-                { name: 'Hoodies', href: '/category/adult?model=hoodie' },
+                { name: 'T-Shirts', href: '/category/soccer?audience=adult&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/soccer?audience=adult&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/soccer?audience=adult&model=hoodie' },
             ]
         },
         {
-            title: 'By Role',
+            title: 'Youth',
             items: [
-                { name: 'Mom Collection', href: '/category/adult?role=mom' },
-                { name: 'Dad Squad', href: '/category/adult?role=dad' },
-                { name: 'Super Fan', href: '/category/adult?role=fan' },
-            ]
-        }
-    ]
-  },
-  { 
-    name: 'Youth', 
-    href: '/category/youth',
-    sections: [
-        {
-            title: 'Kids & Teens',
-            items: [
-                { name: 'Youth Tee', href: '/category/youth?model=t-shirt' },
-                { name: 'Youth Hoodie', href: '/category/youth?model=hoodie' },
-                { name: 'Baby Gear', href: '/category/kids?model=baby' },
+                { name: 'T-Shirts', href: '/category/soccer?audience=youth&model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/soccer?audience=youth&model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/soccer?audience=youth&model=hoodie' },
+                { name: 'Toddler Tee', href: '/category/soccer?audience=youth&model=toddler-tee' },
+                { name: 'Baby Suit', href: '/category/soccer?audience=youth&model=baby-suit' },
             ]
         }
     ]
   },
   { name: 'Our Story', href: '/story' },
 ];
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);

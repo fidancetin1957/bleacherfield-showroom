@@ -3,7 +3,8 @@ export interface Product {
   name: string;
   price: string;
   category: string;
-  model: 't-shirt' | 'sweatshirt' | 'hoodie';
+  audience: 'adult' | 'youth';
+  model: 't-shirt' | 'sweatshirt' | 'hoodie' | 'toddler-tee' | 'baby-suit';
   image: string;
   color: string;
   etsyUrl: string;
@@ -20,6 +21,7 @@ export const products: Product[] = [
     name: 'Classic Football Mom Tee',
     price: '28.00',
     category: 'Football',
+    audience: 'adult',
     model: 't-shirt',
     image: '/mockups/football_1.webp',
     color: 'Oxford Navy',
@@ -34,6 +36,7 @@ export const products: Product[] = [
     name: 'Game Day Basketball Hoodie',
     price: '45.00',
     category: 'Basketball',
+    audience: 'adult',
     model: 'hoodie',
     image: '/mockups/basketball_1.webp',
     color: 'Deep Heather',
@@ -47,6 +50,7 @@ export const products: Product[] = [
     name: 'Seattle Baseball Spirit Jersey',
     price: '32.00',
     category: 'Baseball',
+    audience: 'adult',
     model: 't-shirt',
     image: '/mockups/baseball_1.webp',
     color: 'Navy/White',
@@ -62,6 +66,7 @@ export const products: Product[] = [
     name: 'Kansas Soccer Gameday Suit',
     price: '42.00',
     category: 'Soccer',
+    audience: 'youth',
     model: 't-shirt',
     image: '/mockups/soccer_1.webp',
     color: 'White/Red',
@@ -75,6 +80,7 @@ export const products: Product[] = [
     name: 'Vintage Hockey Dad Sweatshirt',
     price: '48.00',
     category: 'Hockey',
+    audience: 'adult',
     model: 'sweatshirt',
     image: '/mockups/hockey_1.webp',
     color: 'Black',
@@ -89,6 +95,7 @@ export const products: Product[] = [
     name: 'Anaheim Mighty Ducks Retro Hoodie',
     price: '52.00',
     category: 'Hockey',
+    audience: 'adult',
     model: 'hoodie',
     image: '/mockups/hockey_1.webp',
     color: 'Eggplant',
@@ -103,6 +110,7 @@ export const products: Product[] = [
     name: 'Kansas City Dynasty Era Tee',
     price: '28.00',
     category: 'Football',
+    audience: 'adult',
     model: 't-shirt',
     image: '/mockups/football_1.webp',
     color: 'Red',
@@ -117,6 +125,7 @@ export const products: Product[] = [
     name: 'Philadelphia Philly Spirit Sweatshirt',
     price: '46.00',
     category: 'Football',
+    audience: 'adult',
     model: 'sweatshirt',
     image: '/mockups/football_1.webp',
     color: 'Midnight Green',
@@ -130,6 +139,7 @@ export const products: Product[] = [
     name: 'Inter Miami Modern Soccer Tee',
     price: '30.00',
     category: 'Soccer',
+    audience: 'youth',
     model: 't-shirt',
     image: '/mockups/soccer_1.webp',
     color: 'Pink',
@@ -143,6 +153,7 @@ export const products: Product[] = [
     name: 'Chicago Bulls Nostalgia Track Hoodie',
     price: '54.00',
     category: 'Basketball',
+    audience: 'adult',
     model: 'hoodie',
     image: '/mockups/basketball_1.webp',
     color: 'Red/Black',
@@ -152,3 +163,4 @@ export const products: Product[] = [
     role: ['Super Fan']
   },
 ];
+
