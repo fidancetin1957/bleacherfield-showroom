@@ -364,14 +364,22 @@ function MobileNavItem({ item, setIsOpen }: { item: NavItem; setIsOpen: any }) {
   }
 
   return (
-    <div className="bg-primary/5 rounded-[2rem] p-2 mb-2">
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between py-4 px-4 text-2xl font-black text-primary"
-      >
-        <span>{item.name}</span>
-        <ChevronDown className={`h-6 w-6 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
-      </button>
+    <div className="bg-primary/5 rounded-[2rem] mb-2 overflow-hidden">
+      <div className="flex items-center justify-between">
+        <Link
+          href={item.href}
+          onClick={() => setIsOpen(false)}
+          className="flex-grow py-4 px-6 text-2xl font-black text-primary"
+        >
+          {item.name}
+        </Link>
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="p-4 mr-2 hover:bg-primary/5 rounded-full transition-colors"
+        >
+          <ChevronDown className={`h-6 w-6 text-primary/40 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+        </button>
+      </div>
       <AnimatePresence>
         {isExpanded && (
           <motion.div

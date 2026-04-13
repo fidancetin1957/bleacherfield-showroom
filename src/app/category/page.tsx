@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Link from 'next/link';
 import Image from 'next/image';
-import { Trophy, Users, Star, ArrowRight, Goal, Shirt, GraduationCap, IceCream, MapPin } from 'lucide-react';
+import { Trophy, Users, Star, ArrowRight, Goal, Shirt, GraduationCap, IceCream, MapPin, Sparkles } from 'lucide-react';
 
 const sportsCategories = [
     { 
@@ -45,12 +45,12 @@ const sportsCategories = [
         image: '/images/soccer.webp'
     },
     { 
-        name: 'NCAA', 
-        slug: 'ncaa', 
-        count: '150+ Schools',
-        icon: <GraduationCap className="w-24 h-24" />,
-        description: 'Saturday culture. Crimson Tide to Bulldogs.',
-        image: '/images/football.webp'
+        name: 'Custom Orders', 
+        slug: 'custom', 
+        count: 'Bespoke Gear',
+        icon: <Sparkles className="w-24 h-24" />,
+        description: 'Dream it, we build it. Custom stadium wear tailored for your team (on Etsy).',
+        image: '/images/baseball.webp' // Using baseball diamond as a 'drawing board' feel
     }
 ];
 

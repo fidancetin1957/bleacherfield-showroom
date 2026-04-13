@@ -49,7 +49,7 @@ export default function Home() {
       </section>
 
       {/* Latest Drops Marquee */}
-      <section className="py-20 bg-white overflow-hidden">
+      <section id="showroom" className="py-20 bg-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 mb-12">
             <h2 className="text-sm font-black text-primary/30 uppercase tracking-[0.5em]">Latest Drops</h2>
         </div>

@@ -41,7 +41,7 @@ const boutiques = [
 
 export default function BoutiqueGrid() {
   return (
-    <section id="showroom" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-20">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-20">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {boutiques.map((item, idx) => (
           <motion.div
