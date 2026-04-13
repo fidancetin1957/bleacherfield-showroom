@@ -78,6 +78,7 @@ export default function Footer() {
             <ul className="space-y-4 font-bold uppercase tracking-widest text-xs">
               <li><Link href="/legal#shipping" className="text-white/60 hover:text-white transition-colors">Shipping Info</Link></li>
               <li><Link href="/legal#returns" className="text-white/60 hover:text-white transition-colors">Returns & Refunds</Link></li>
+              <li><Link href="/contact" className="text-white/60 hover:text-white transition-colors">Contact Us</Link></li>
               <li><Link href="/legal#terms" className="text-white/60 hover:text-white transition-colors">Terms of Service</Link></li>
               <li><Link href="/legal#privacy" className="text-white/60 hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
