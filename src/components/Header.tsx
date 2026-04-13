@@ -303,7 +303,11 @@ export default function Header() {
               className="fixed inset-y-0 left-0 w-[90%] max-w-sm bg-background shadow-2xl z-50 p-6 flex flex-col overflow-y-auto"
             >
               <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center space-x-3">
+                <Link 
+                  href="/" 
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center space-x-3"
+                >
                     <div className="w-10 h-10 relative overflow-hidden rounded-xl">
                       <img 
                         src="/images/logo.webp" 
@@ -312,7 +316,7 @@ export default function Header() {
                       />
                     </div>
                     <span className="text-xl font-bold text-primary uppercase tracking-tighter">BleacherField</span>
-                </div>
+                </Link>
                 <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-primary/5 rounded-full transition-colors">
                   <X className="h-6 w-6 text-primary" />
                 </button>
