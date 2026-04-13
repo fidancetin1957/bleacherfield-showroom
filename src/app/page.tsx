@@ -48,18 +48,7 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* Latest Drops Marquee */}
-      <section id="showroom" className="py-20 bg-white overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 mb-12">
-            <h2 className="text-sm font-black text-primary/30 uppercase tracking-[0.5em]">Latest Drops</h2>
-        </div>
-        <ProductMarquee />
-      </section>
-
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <h2 className="text-3xl font-black text-primary mb-12 uppercase tracking-tighter">Season's <span className="text-primary/30">Selects</span></h2>
-        <ProductGrid />
-      </section>
+      <ProductGrid />
 
       <section className="bg-primary/5 py-32 rounded-[4rem] mx-4 mb-20 text-center">
         <div className="max-w-3xl mx-auto px-4">
