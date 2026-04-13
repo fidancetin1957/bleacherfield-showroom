@@ -82,7 +82,7 @@ export default function GamedayHub() {
               transition={{ delay: idx * 0.1 }}
               className={`group relative overflow-hidden rounded-[3rem] bg-primary/5 shadow-2xl ${sport.grid}`}
             >
-              <Link href={`#${sport.id}`} className="block w-full h-full relative">
+              <Link href={`/category/${sport.id}?role=Gameday`} className="block w-full h-full relative">
                 <Image 
                   src={sport.image} 
                   alt={sport.name}
