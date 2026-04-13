@@ -5,49 +5,123 @@ import { Menu, Search, ShoppingBag, X, ChevronDown, Sparkles } from 'lucide-reac
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface NavItem {
-  name: string;
-  href: string;
-  isHighlight?: boolean;
-  sections?: {
-    title: string;
-    items: { name: string; href: string }[];
-  }[];
-}
-
-const productModels = [
-  {
-    title: 'ADULT',
-    items: [
-      { name: 'T-Shirts', href: '/t-shirts' },
-      { name: 'Sweatshirts', href: '/sweatshirts' },
-      { name: 'Hoodies', href: '/hoodies' },
-    ]
-  },
-  {
-    title: 'YOUTH',
-    items: [
-      { name: 'Youth T-Shirt', href: '/youth-t-shirt' },
-      { name: 'Youth Sweatshirt', href: '/youth-sweatshirt' },
-      { name: 'Youth Hoodie', href: '/youth-hoodie' },
-    ]
-  },
-  {
-    title: 'KIDS & BABY',
-    items: [
-      { name: 'Toddler T-Shirt', href: '/toddler-t-shirt' },
-      { name: 'Baby Suit', href: '/baby-suit' },
-    ]
-  }
-];
-
 const navigation: NavItem[] = [
   { name: 'NEW ARRIVALS ⚡', href: '#new-arrivals', isHighlight: true },
-  { name: 'Football', href: '/category/football' },
-  { name: 'Basketball', href: '/category/basketball' },
-  { name: 'Baseball', href: '/category/baseball' },
-  { name: 'Hockey', href: '/category/hockey' },
-  { name: 'Soccer', href: '/category/soccer' },
+  { 
+    name: 'Football', 
+    href: '/category/football',
+    sections: [
+        {
+            title: 'NFL Top Teams',
+            items: [
+                { name: 'Kansas City Chiefs', href: '/category/football?team=chiefs' },
+                { name: 'Dallas Cowboys', href: '/category/football?team=cowboys' },
+                { name: 'Philadelphia Eagles', href: '/category/football?team=eagles' },
+                { name: 'SF 49ers', href: '/category/football?team=49ers' },
+            ]
+        },
+        {
+            title: 'Style',
+            items: [
+                { name: 'Stadium Coordinates', href: '/category/football?style=coords' },
+                { name: 'Vintage Gameday', href: '/category/football?style=vintage' },
+            ]
+        }
+    ]
+  },
+  { 
+    name: 'Basketball', 
+    href: '/category/basketball',
+    sections: [
+        {
+            title: 'NBA Legends',
+            items: [
+                { name: 'LA Lakers', href: '/category/basketball?team=lakers' },
+                { name: 'Chicago Bulls', href: '/category/basketball?team=bulls' },
+                { name: 'Boston Celtics', href: '/category/basketball?team=celtics' },
+                { name: 'Golden State Warriors', href: '/category/basketball?team=warriors' },
+            ]
+        }
+    ]
+  },
+  { 
+    name: 'Baseball', 
+    href: '/category/baseball',
+    sections: [
+        {
+            title: 'MLB Classics',
+            items: [
+                { name: 'NY Yankees', href: '/category/baseball?team=yankees' },
+                { name: 'LA Dodgers', href: '/category/baseball?team=dodgers' },
+                { name: 'Chicago Cubs', href: '/category/baseball?team=cubs' },
+            ]
+        }
+    ]
+  },
+  { 
+    name: 'NHL (Hockey)', 
+    href: '/category/hockey',
+    sections: [
+        {
+            title: 'NHL Cult',
+            items: [
+                { name: 'Anaheim Ducks', href: '/category/hockey?team=ducks' },
+                { name: 'Boston Bruins', href: '/category/hockey?team=bruins' },
+                { name: 'Chicago Blackhawks', href: '/category/hockey?team=blackhawks' },
+            ]
+        }
+    ]
+  },
+  { 
+    name: 'Soccer', 
+    href: '/category/soccer',
+    sections: [
+        {
+            title: 'Global Trends',
+            items: [
+                { name: 'Inter Miami', href: '/category/soccer?team=miami' },
+                { name: 'World Cup 2026', href: '/category/soccer?trend=wc26' },
+            ]
+        }
+    ]
+  },
+  { 
+    name: 'Adult', 
+    href: '/category/adult',
+    sections: [
+        {
+            title: 'Essentials',
+            items: [
+                { name: 'T-Shirts', href: '/category/adult?model=t-shirt' },
+                { name: 'Sweatshirts', href: '/category/adult?model=sweatshirt' },
+                { name: 'Hoodies', href: '/category/adult?model=hoodie' },
+            ]
+        },
+        {
+            title: 'By Role',
+            items: [
+                { name: 'Mom Collection', href: '/category/adult?role=mom' },
+                { name: 'Dad Squad', href: '/category/adult?role=dad' },
+                { name: 'Super Fan', href: '/category/adult?role=fan' },
+            ]
+        }
+    ]
+  },
+  { 
+    name: 'Youth', 
+    href: '/category/youth',
+    sections: [
+        {
+            title: 'Kids & Teens',
+            items: [
+                { name: 'Youth Tee', href: '/category/youth?model=t-shirt' },
+                { name: 'Youth Hoodie', href: '/category/youth?model=hoodie' },
+                { name: 'Baby Gear', href: '/category/kids?model=baby' },
+            ]
+        }
+    ]
+  },
+  { name: 'Our Story', href: '/story' },
 ];
 
 export default function Header() {
@@ -66,11 +140,18 @@ export default function Header() {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass py-2 shadow-sm' : 'bg-transparent py-4'
+        scrolled ? 'glass py-0 shadow-sm' : 'bg-transparent py-0'
       }`}
     >
+      {/* Elite Top Bar */}
+      <div className="bg-primary text-white py-2 px-4 text-center overflow-hidden">
+        <p className="text-[10px] font-black uppercase tracking-[0.4em] animate-pulse">
+            Official BleacherField Showroom • Secure Shopping via Etsy
+        </p>
+      </div>
+
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Mobile Menu Button */}
           <div className="flex xl:hidden">
             <button
@@ -81,11 +162,14 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl font-serif">BF</span>
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="w-12 h-12 relative overflow-hidden rounded-2xl shadow-sm border border-primary/5">
+                <img 
+                  src="/images/logo.webp" 
+                  alt="BleacherField Logo" 
+                  className="object-cover w-full h-full"
+                />
               </div>
               <span className="hidden sm:block text-2xl font-bold tracking-tight text-primary uppercase">
                 BleacherField
@@ -160,12 +244,20 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Action Icons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-6">
             <button className="p-2 text-primary hover:bg-primary/5 rounded-full transition-colors hidden sm:block">
               <Search className="h-5 w-5" />
             </button>
-            <Link href="https://etsy.com" className="p-2 text-primary hover:bg-primary/5 rounded-full transition-colors relative">
+            <Link 
+                href="https://popretroanddreams.etsy.com" 
+                target="_blank"
+                className="hidden sm:flex items-center space-x-2 bg-primary text-white px-6 py-2.5 rounded-full font-black text-[10px] uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all"
+            >
+              <ShoppingBag className="h-4 w-4" />
+              <span>Shop on Etsy</span>
+            </Link>
+            {/* Mobile Shopping Bag (Small) */}
+            <Link href="https://popretroanddreams.etsy.com" className="sm:hidden p-2 text-primary relative">
               <ShoppingBag className="h-5 w-5" />
               <span className="absolute top-1 right-1 h-2 w-2 bg-red-500 rounded-full"></span>
             </Link>
@@ -192,9 +284,13 @@ export default function Header() {
               className="fixed inset-y-0 left-0 w-[90%] max-w-sm bg-background shadow-2xl z-50 p-6 flex flex-col overflow-y-auto"
             >
               <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold text-sm font-serif">BF</span>
+                <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 relative overflow-hidden rounded-xl">
+                      <img 
+                        src="/images/logo.webp" 
+                        alt="BleacherField Logo" 
+                        className="object-cover w-full h-full"
+                      />
                     </div>
                     <span className="text-xl font-bold text-primary uppercase tracking-tighter">BleacherField</span>
                 </div>
@@ -211,7 +307,7 @@ export default function Header() {
 
               <div className="mt-auto pt-10">
                 <Link 
-                  href="https://etsy.com"
+                  href="https://popretroanddreams.etsy.com"
                   onClick={() => setIsOpen(false)}
                   className="w-full flex items-center justify-center space-x-2 bg-primary text-white py-4 rounded-[1.5rem] font-bold shadow-lg shadow-primary/20 active:scale-95 transition-transform"
                 >
