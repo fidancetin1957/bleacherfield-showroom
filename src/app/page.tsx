@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from '@/components/Hero';
+import BoutiqueGrid from '@/components/BoutiqueGrid';
 import ProductGrid from '@/components/ProductGrid';
 import ProductMarquee from '@/components/ProductMarquee';
 import Link from 'next/link';
@@ -10,6 +11,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <BoutiqueGrid />
       
       {/* Game Day Hub Spotlight - NARROWED & SEALED */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10 pb-20">

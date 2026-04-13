@@ -81,32 +81,6 @@ export default function Hero() {
                 <span>Style Guide</span>
               </Link>
             </motion.div>
-
-            {/* Elite Quick Links Row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-2 md:gap-3 pt-6 border-t border-primary/5 justify-center md:justify-start"
-            >
-              {[
-                { name: 'Adults', icon: Users, href: '/category/football?audience=adult' },
-                { name: 'Youth & Kids', icon: Baby, href: '/category/football?audience=youth' },
-                { name: 'Mom Collection', icon: Heart, href: '/category/football?role=Mom' },
-                { name: 'Dad Squad', icon: Shield, href: '/category/football?role=Dad' },
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-primary/5 hover:bg-primary/10 border border-primary/5 transition-all text-primary"
-                >
-                  <item.icon className="h-3 w-3 opacity-60" />
-                  <span className="text-[10px] font-black uppercase tracking-widest leading-none">
-                    {item.name}
-                  </span>
-                </Link>
-              ))}
-            </motion.div>
           </div>
 
           {/* Hero Visual Prototype (Stadium Curved Container) */}
