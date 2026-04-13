@@ -64,12 +64,12 @@ export default function CategoryIndexPage() {
             <Trophy className="h-4 w-4" />
             <span>The Discovery Engine</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black text-primary uppercase tracking-tighter leading-none mb-6">
-            Explore <br />
-            <span className="text-primary/30 italic">Collections.</span>
+          <h1 className="text-6xl md:text-9xl font-black text-primary uppercase tracking-tighter leading-none mb-6">
+            Choose Your <br />
+            <span className="text-primary/30 italic">Arena.</span>
           </h1>
-          <p className="text-primary/60 font-medium max-w-xl mx-auto uppercase text-xs tracking-[0.2em]">
-            From the NFL gridiron to the NHL ice, browse our curated gameday apparel.
+          <p className="text-primary/40 font-bold max-w-xl mx-auto uppercase text-[10px] tracking-[0.4em] leading-relaxed">
+            Find Your Hometown Spirit • Curated Stadium Essentials
           </p>
         </div>
 
@@ -81,25 +81,29 @@ export default function CategoryIndexPage() {
                     className="group relative h-[500px] overflow-hidden rounded-[3rem] bg-primary/5 border border-primary/5"
                 >
                     {/* Background Visual Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent z-10 opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent z-10 opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
                     
                     {/* Abstract Sport Pattern */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10 group-hover:scale-110 transition-transform duration-1000 text-white">
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5 group-hover:opacity-10 group-hover:scale-110 transition-all duration-1000 text-white">
                         {sport.icon}
                     </div>
 
-                    <div className="absolute inset-0 p-10 flex flex-col justify-end z-20">
-                        <div className="space-y-4 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end z-20">
+                        <div className="space-y-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <div className="flex items-center justify-between">
-                                <span className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black text-white uppercase tracking-widest leading-none">
+                                <span className="bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-[10px] font-black text-white uppercase tracking-[0.2em] leading-none border border-white/5">
                                     {sport.count}
                                 </span>
-                                <ArrowRight className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:rotate-12">
+                                    <ArrowRight className="h-5 w-5 text-white" />
+                                </div>
                             </div>
-                            <h2 className="text-4xl font-black text-white uppercase tracking-tighter">{sport.name}</h2>
-                            <p className="text-white/60 font-semibold text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                {sport.description}
-                            </p>
+                            <div>
+                                <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-2">{sport.name}</h2>
+                                <p className="text-white/40 font-bold text-xs uppercase tracking-widest leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-700 max-w-xs">
+                                    {sport.description}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </Link>
