@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function LegalPage() {
   return (
@@ -18,7 +19,7 @@ export default function LegalPage() {
 
           <div className="space-y-16">
             {/* Returns */}
-            <div className="space-y-6">
+            <div id="returns" className="scroll-mt-32 space-y-6">
                 <h2 className="text-2xl font-black text-primary uppercase tracking-tight">Returns & Refunds</h2>
                 <div className="p-8 bg-primary/5 rounded-[2.5rem] border border-primary/5">
                     <p className="text-xl text-primary font-bold leading-relaxed mb-4">
@@ -27,35 +28,41 @@ export default function LegalPage() {
                     <p className="text-primary/60 text-sm font-medium">
                         At BleacherField, each piece is custom-made just for you using our premium partners. We stand by our quality, but if there’s a production error, we’ve got you covered with our Hometown Spirit Guarantee.
                     </p>
-                    <p className="mt-4 text-primary font-black uppercase text-[10px] tracking-widest">
-                        Standard production: 1-3 Business Days (Excluding Weekends).
-                    </p>
                 </div>
             </div>
 
             {/* Production & Shipping */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                    <h3 className="text-sm font-black uppercase tracking-widest text-primary/40">Production</h3>
-                    <p className="text-primary font-semibold">Standard production takes 2-5 business days.</p>
+            <div id="shipping" className="scroll-mt-32 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4 p-8 bg-primary/5 rounded-[2.5rem]">
+                    <h3 className="text-xs font-black uppercase tracking-widest text-primary/40">Production Speed</h3>
+                    <p className="text-primary font-bold text-lg">Standard production takes 2-5 business days (Excluding Weekends).</p>
                 </div>
-                <div className="space-y-4">
-                    <h3 className="text-sm font-black uppercase tracking-widest text-primary/40">Shipping</h3>
-                    <p className="text-primary font-semibold">Average delivery is 3-7 business days across the USA.</p>
+                <div className="space-y-4 p-8 bg-primary/5 rounded-[2.5rem]">
+                    <h3 className="text-xs font-black uppercase tracking-widest text-primary/40">Shipping Info</h3>
+                    <p className="text-primary font-bold text-lg">Average delivery is 3-7 business days across the USA via premium carriers.</p>
                 </div>
             </div>
 
-            {/* Privacy Placeholder */}
-            <div className="pt-10 border-t border-primary/5">
-                <p className="text-xs text-primary/30 font-bold uppercase tracking-[0.2em]">Privacy & Terms apply to all showroom transactions. BleacherField is an independent boutique partner of Etsy Marketplace.</p>
+            {/* Terms & Privacy */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-primary/5 pt-16">
+                <div id="terms" className="scroll-mt-32 space-y-6">
+                    <h2 className="text-xl font-black text-primary uppercase tracking-tight">Terms of Service</h2>
+                    <p className="text-primary/60 text-sm leading-relaxed">
+                        By using the BleacherField Showroom, you agree to our terms of curated commerce. All designs are original property or licensed for spirit wear production. Operations are powered by the Etsy Marketplace framework.
+                    </p>
+                </div>
+                <div id="privacy" className="scroll-mt-32 space-y-6">
+                    <h2 className="text-xl font-black text-primary uppercase tracking-tight">Privacy Policy</h2>
+                    <p className="text-primary/60 text-sm leading-relaxed">
+                        Your privacy is our goal. We only collect data necessary for transaction processing and fulfillment through our secure Etsy partner nodes. We never sell your data to 3rd party bleacher-sitters.
+                    </p>
+                </div>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="py-20 bg-primary text-white/40 text-center font-bold text-sm uppercase tracking-widest">
-        <p>© 2026 BleacherField • Hometown Spirit.</p>
-      </footer>
+      <Footer />
     </main>
   );
 }

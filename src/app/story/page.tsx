@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function StoryPage() {
   return (
@@ -44,10 +45,7 @@ export default function StoryPage() {
         </div>
       </section>
 
-      {/* Basic Footer for Legal/Story pages */}
-      <footer className="py-20 bg-primary text-white/40 text-center font-bold text-sm uppercase tracking-widest">
-        <p>© 2026 BleacherField • Hometown Spirit.</p>
-      </footer>
+      <Footer />
     </main>
   );
 }

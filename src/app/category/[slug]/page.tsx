@@ -9,6 +9,7 @@ import { products } from '@/data/products';
 import { franchises } from '@/data/franchises';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Filter } from 'lucide-react';
+import Footer from "@/components/Footer";
 
 export default function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
@@ -237,6 +238,7 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
           </div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
