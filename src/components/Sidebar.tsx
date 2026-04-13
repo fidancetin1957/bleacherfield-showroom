@@ -85,7 +85,9 @@ export default function Sidebar({
             Models
           </h3>
           <div className="flex flex-col space-y-1">
-            {models.map((model) => (
+            {models
+              .filter(m => activeAudience !== 'adult' || !['toddler-tee', 'baby-suit'].includes(m.id))
+              .map((model) => (
               <button
                 key={model.id}
                 onClick={() => setActiveModel(activeModel === model.id ? null : model.id)}

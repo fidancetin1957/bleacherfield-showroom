@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Trophy, Play } from 'lucide-react';
+import { ArrowRight, Trophy, Play, Users, Baby, Heart, Shield } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Hero() {
@@ -16,9 +16,8 @@ export default function Hero() {
           loop
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover opacity-20 pointer-events-none transition-opacity duration-1000"
-          poster="/images/hero-fallback.jpg" // User can provide this later
+          poster="/images/hero-fallback.jpg"
         >
-          {/* User will add sources later */}
           {/* <source src="/videos/hero-ambient.mp4" type="video/mp4" /> */}
         </video>
 
@@ -65,7 +64,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+              className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-4"
             >
               <Link
                 href="#showroom"
@@ -82,6 +81,32 @@ export default function Hero() {
                 <span>Style Guide</span>
               </Link>
             </motion.div>
+
+            {/* Elite Quick Links Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap gap-2 md:gap-3 pt-6 border-t border-primary/5 justify-center md:justify-start"
+            >
+              {[
+                { name: 'Adults', icon: Users, href: '/category/football?audience=adult' },
+                { name: 'Youth & Kids', icon: Baby, href: '/category/football?audience=youth' },
+                { name: 'Mom Collection', icon: Heart, href: '/category/football?role=Mom' },
+                { name: 'Dad Squad', icon: Shield, href: '/category/football?role=Dad' },
+              ].map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-primary/5 hover:bg-primary/10 border border-primary/5 transition-all text-primary"
+                >
+                  <item.icon className="h-3 w-3 opacity-60" />
+                  <span className="text-[10px] font-black uppercase tracking-widest leading-none">
+                    {item.name}
+                  </span>
+                </Link>
+              ))}
+            </motion.div>
           </div>
 
           {/* Hero Visual Prototype (Stadium Curved Container) */}
@@ -92,13 +117,10 @@ export default function Hero() {
             className="md:w-1/2 relative"
           >
             <div className="relative aspect-square max-w-lg mx-auto bg-primary/5 rounded-[3rem] border-2 border-primary/10 flex items-center justify-center overflow-hidden shadow-inner group">
-                {/* Visual Placeholder for Video Preview */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
                 <div className="z-10 text-primary/10 font-black text-8xl rotate-[-15deg] uppercase selection:bg-transparent transition-all duration-700 group-hover:scale-110 group-hover:rotate-0 group-hover:text-primary/20">
                     Field
                 </div>
-                
-                {/* Subtle Micro-Animations */}
                 <div className="absolute top-10 left-10 w-20 h-20 border border-primary/10 rounded-full animate-ping opacity-20" />
                 <div className="absolute bottom-20 right-20 w-32 h-32 border border-primary/10 rounded-[2rem] animate-pulse opacity-10" />
             </div>

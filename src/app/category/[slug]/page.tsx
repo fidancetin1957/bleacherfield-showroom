@@ -3,12 +3,12 @@
 import { use, useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
-import BoutiqueQuickBar from '@/components/BoutiqueQuickBar';
 import ProductCard from '@/components/ProductCard';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { products } from '@/data/products';
 import { franchises } from '@/data/franchises';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Filter } from 'lucide-react';
 
 export default function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
@@ -64,7 +64,20 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
         backgroundColor: selectedFranchise ? `${selectedFranchise.colors.primary}05` : 'transparent' 
       }}
     >
-      <BoutiqueQuickBar />
+      {/* Mobile Floating Filter Button */}
+      <div className="xl:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+        <button 
+            onClick={() => {
+                const sidebar = document.querySelector('aside');
+                sidebar?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="flex items-center space-x-2 bg-primary text-white px-6 py-3 rounded-full shadow-2xl font-black text-[10px] uppercase tracking-[0.2em] border border-white/10 active:scale-95 transition-transform"
+        >
+            <Filter className="h-4 w-4" />
+            <span>Apply Filters</span>
+        </button>
+      </div>
+
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <Breadcrumbs />
         
@@ -131,7 +144,9 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                     Displaying {filteredProducts.length} Results
                 </span>
                 <div className="flex items-center space-x-2">
-                    {['t-shirt', 'sweatshirt', 'hoodie', 'toddler-tee', 'baby-suit'].map(model => (
+                    {['t-shirt', 'sweatshirt', 'hoodie', 'toddler-tee', 'baby-suit']
+                      .filter(m => activeAudience !== 'adult' || !['toddler-tee', 'baby-suit'].includes(m))
+                      .map(model => (
                         <button 
                             key={model}
                             onClick={() => setActiveModel(activeModel === model ? null : model)}

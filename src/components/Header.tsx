@@ -190,7 +190,7 @@ export default function Header() {
                   className="object-cover w-full h-full"
                 />
               </div>
-              <span className="hidden sm:block text-2xl font-bold tracking-tight text-primary uppercase">
+              <span className="text-lg sm:text-2xl font-bold tracking-tight text-primary uppercase">
                 BleacherField
               </span>
             </Link>
