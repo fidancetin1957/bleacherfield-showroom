@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Hero from '@/components/Hero';
 import BoutiqueGrid from '@/components/BoutiqueGrid';
 import ProductGrid from '@/components/ProductGrid';
@@ -62,17 +63,6 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Footer Prototype */}
-      <footer className="py-20 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-white/10 pb-16">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 relative overflow-hidden rounded-2xl">
-                  <img 
-                    src="/images/logo.webp" 
-                    alt="BleacherField Logo" 
-                    className="object-cover w-full h-full"
       <Footer />
     </main>
   );
