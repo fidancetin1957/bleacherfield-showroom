@@ -9,7 +9,7 @@ const sportsCategories = [
         count: '32 Teams',
         icon: <Trophy className="w-24 h-24" />,
         description: 'The American Juggernaut. Tailgate club essentials.',
-        image: '/images/football_hub.webp'
+        image: '/images/football.webp'
     },
     { 
         name: 'Basketball', 
@@ -17,7 +17,7 @@ const sportsCategories = [
         count: '30 Teams',
         icon: <Goal className="w-24 h-24" />,
         description: 'Streetwear meets the court. Every city, every era.',
-        image: '/images/basketball_hub.webp'
+        image: '/images/basketball.webp'
     },
     { 
         name: 'Baseball', 
@@ -25,15 +25,15 @@ const sportsCategories = [
         count: '30 Teams',
         icon: <Star className="w-24 h-24" />,
         description: 'The National Pastime. From the Yankees to the Dodgers.',
-        image: '/images/baseball_hub.webp'
+        image: '/images/baseball.webp'
     },
     { 
         name: 'Hockey', 
         slug: 'hockey', 
         count: '32 Teams',
         icon: <MapPin className="w-24 h-24" />,
-        description: 'Icy grit and Mighty Ducks nostalgia. NHL exclusive.',
-        image: '/images/hockey_hub.webp'
+        description: 'Icy grit and nostalgia. NHL exclusive.',
+        image: '/images/hockey.webp'
     },
     { 
         name: 'Soccer', 
@@ -41,7 +41,7 @@ const sportsCategories = [
         count: '20 Teams',
         icon: <Goal className="w-24 h-24" />,
         description: 'Global energy, hometown heart. Inter Miami & beyond.',
-        image: '/images/soccer_hub.webp'
+        image: '/images/soccer.webp'
     },
     { 
         name: 'NCAA', 
@@ -49,7 +49,7 @@ const sportsCategories = [
         count: '150+ Schools',
         icon: <GraduationCap className="w-24 h-24" />,
         description: 'Saturday culture. Crimson Tide to Bulldogs.',
-        image: '/images/football_hub.webp'
+        image: '/images/football.webp'
     }
 ];
 
@@ -78,9 +78,14 @@ export default function CategoryIndexPage() {
                 <Link 
                     key={sport.slug} 
                     href={`/category/${sport.slug}`}
-                    className="group relative h-[500px] overflow-hidden rounded-[3rem] bg-primary/5 border border-primary/5"
+                    className="group relative h-[350px] md:h-[500px] overflow-hidden rounded-[3rem] bg-primary/5 border border-primary/5"
                 >
-                    {/* Background Visual Overlay */}
+                    {/* Real Sport Image */}
+                    <img 
+                        src={sport.image} 
+                        alt={sport.name} 
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent z-10 opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
                     
                     {/* Abstract Sport Pattern */}
