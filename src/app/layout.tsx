@@ -42,6 +42,9 @@ export const viewport: Viewport = {
   themeColor: "#002147",
 };
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,6 +61,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
