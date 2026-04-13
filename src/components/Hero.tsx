@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex items-center">
+    <section className="relative pt-32 pb-20 overflow-hidden min-h-[70vh] lg:min-h-[90vh] flex items-center">
       {/* Background Infrastructure */}
       <div className="absolute top-0 left-0 w-full h-full -z-10 bg-background">
         {/* Ambient Video Background (Infrastructure) */}
@@ -74,11 +74,11 @@ export default function Hero() {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="#style-guide"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary/20 text-primary rounded-[1.5rem] font-bold text-lg hover:bg-primary/5 transition-all lg:w-max group"
+                href="/category"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary/20 text-primary rounded-[1.5rem] font-bold text-lg hover:bg-primary/5 transition-all lg:w-max group text-center"
               >
-                <Play className="mr-2 h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
-                <span>Style Guide</span>
+                <Trophy className="mr-2 h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                <span>Explore All Sports</span>
               </Link>
             </motion.div>
           </div>
