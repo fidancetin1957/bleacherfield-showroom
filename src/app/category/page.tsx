@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Link from 'next/link';
+import Image from 'next/image';
 import { Trophy, Users, Star, ArrowRight, Goal, Shirt, GraduationCap, IceCream, MapPin } from 'lucide-react';
 
 const sportsCategories = [
@@ -78,13 +79,14 @@ export default function CategoryIndexPage() {
                 <Link 
                     key={sport.slug} 
                     href={`/category/${sport.slug}`}
-                    className="group relative h-[350px] md:h-[500px] overflow-hidden rounded-[3rem] bg-primary/5 border border-primary/5"
+                    className="group relative h-[350px] md:h-[400px] overflow-hidden rounded-[3rem] bg-primary/5 border border-primary/5"
                 >
                     {/* Real Sport Image */}
-                    <img 
+                    <Image 
                         src={sport.image} 
                         alt={sport.name} 
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent z-10 opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
                     
