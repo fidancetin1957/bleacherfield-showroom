@@ -65,7 +65,11 @@ export default function Sidebar({
             {['Adult', 'Youth'].map((aud) => (
               <button
                 key={aud}
-                onClick={() => setActiveAudience(activeAudience === aud.toLowerCase() ? null : aud.toLowerCase())}
+                onClick={() => {
+                  const newVal = activeAudience === aud.toLowerCase() ? null : aud.toLowerCase();
+                  setActiveAudience(newVal);
+                  if (newVal) setActiveRole('All'); // Clear Role if Audience is picked
+                }}
                 className={`text-left px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                   activeAudience === aud.toLowerCase() 
                     ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105' 
@@ -113,7 +117,11 @@ export default function Sidebar({
             {boutiqueRoles.map((role) => (
               <button
                 key={role}
-                onClick={() => setActiveRole(activeRole === role ? 'All' : role)}
+                onClick={() => {
+                  const newVal = activeRole === role ? 'All' : role;
+                  setActiveRole(newVal);
+                  if (newVal !== 'All') setActiveAudience(null); // Clear Audience if Role is picked
+                }}
                 className={`text-left px-4 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${
                   activeRole === role 
                     ? 'bg-primary text-white shadow-lg' 
@@ -188,8 +196,15 @@ export default function Sidebar({
               <button
                 key={filter}
                 onClick={() => {
-                   if (['Adult', 'Youth'].includes(filter)) setActiveAudience(activeAudience === filter.toLowerCase() ? null : filter.toLowerCase());
-                   else setActiveRole(activeRole === filter ? 'All' : filter);
+                   if (['Adult', 'Youth'].includes(filter)) {
+                     const isSame = activeAudience === filter.toLowerCase();
+                     setActiveAudience(isSame ? null : filter.toLowerCase());
+                     if (!isSame) setActiveRole('All');
+                   } else {
+                     const isSame = activeRole === filter;
+                     setActiveRole(isSame ? 'All' : filter);
+                     if (!isSame) setActiveAudience(null);
+                   }
                 }}
                 className={`px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest whitespace-nowrap transition-all border ${
                   (activeAudience === filter.toLowerCase() || activeRole === filter)

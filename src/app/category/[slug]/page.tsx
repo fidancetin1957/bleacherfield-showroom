@@ -139,18 +139,18 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
 
           {/* Product Feed */}
           <div className="flex-grow">
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-primary/5">
-                <span className="text-[10px] font-black text-primary/30 uppercase tracking-[0.5em]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-4 border-b border-primary/5 gap-4">
+                <span className="text-[10px] font-black text-primary/30 uppercase tracking-[0.5em] whitespace-nowrap">
                     Displaying {filteredProducts.length} Results
                 </span>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 pb-1 sm:pb-0">
                     {['t-shirt', 'sweatshirt', 'hoodie', 'toddler-tee', 'baby-suit']
                       .filter(m => activeAudience !== 'adult' || !['toddler-tee', 'baby-suit'].includes(m))
                       .map(model => (
                         <button 
                             key={model}
                             onClick={() => setActiveModel(activeModel === model ? null : model)}
-                            className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${
+                            className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all whitespace-nowrap ${
                                 activeModel === model 
                                 ? 'bg-primary text-white' 
                                 : 'bg-primary/5 text-primary/40 hover:bg-primary/10'
