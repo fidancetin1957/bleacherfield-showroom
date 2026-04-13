@@ -80,7 +80,7 @@ export default function GamedayHub() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: idx * 0.1 }}
-              className={`group relative overflow-hidden rounded-[3rem] bg-primary/5 shadow-2xl ${sport.grid}`}
+              className={`group relative overflow-hidden rounded-[3rem] bg-primary/5 shadow-2xl min-h-[300px] md:min-h-0 ${sport.grid}`}
             >
               <Link href={`/category/${sport.id}?role=Gameday`} className="block w-full h-full relative">
                 <Image 
@@ -126,7 +126,7 @@ export default function GamedayHub() {
             {/* Grid of Products (Placeholder for now) */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[1,2,3,4].map((i) => (
-                    <div key={i} className="aspect-[3/4] rounded-[2.5rem] bg-primary/10 animate-pulse relative overflow-hidden">
+                    <div key={i} className="aspect-square rounded-[2.5rem] bg-primary/10 animate-pulse relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
                     </div>
                 ))}
