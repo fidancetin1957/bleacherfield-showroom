@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ProductCard from './ProductCard';
 import { products } from '@/data/products';
 
-const categories = ['All', 'Football', 'Baseball', 'Basketball'];
+const categories = ['All', 'Football', 'Baseball', 'Basketball', 'Soccer', 'Hockey'];
 
 export default function ProductGrid() {
   const [activeCategory, setActiveCategory] = useState('All');
