@@ -3,6 +3,7 @@
 import { use, useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
+import BoutiqueQuickBar from '@/components/BoutiqueQuickBar';
 import ProductCard from '@/components/ProductCard';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { products } from '@/data/products';
@@ -63,7 +64,8 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
         backgroundColor: selectedFranchise ? `${selectedFranchise.colors.primary}05` : 'transparent' 
       }}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+      <BoutiqueQuickBar />
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <Breadcrumbs />
         
         {/* Category Header with Transitioning Accent */}
@@ -116,6 +118,10 @@ export default function CategoryPage({ params }: { params: Promise<{ slug: strin
                 setActiveTeamId={setActiveTeamId}
                 activeRole={activeRole}
                 setActiveRole={setActiveRole}
+                activeAudience={activeAudience}
+                setActiveAudience={setActiveAudience}
+                activeModel={activeModel}
+                setActiveModel={setActiveModel}
             />
 
           {/* Product Feed */}
