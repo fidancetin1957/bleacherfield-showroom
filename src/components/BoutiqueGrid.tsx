@@ -41,7 +41,7 @@ const boutiques = [
 
 export default function BoutiqueGrid() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-12 -mt-8 relative z-20">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {boutiques.map((item, idx) => (
           <motion.div
@@ -52,22 +52,22 @@ export default function BoutiqueGrid() {
             transition={{ delay: idx * 0.1 }}
           >
             <Link href={item.href} className="group relative block h-full">
-              <div className={`relative overflow-hidden rounded-[2rem] ${item.color} p-6 h-full shadow-lg transition-all duration-500 group-hover:scale-[1.02] group-active:scale-95`}>
+              <div className={`relative overflow-hidden rounded-[2.5rem] ${item.color} p-8 h-full shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-active:scale-95 border border-white/5`}>
                 {/* Stadium Texture Overlay */}
-                <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] pointer-events-none" />
+                <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] pointer-events-none" />
                 
-                <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center border border-white/5 group-hover:bg-white/20 transition-colors">
-                    <item.icon className="h-6 w-6 text-white" />
+                <div className="relative z-10 flex flex-col items-center text-center space-y-6">
+                  <div className="w-20 h-20 rounded-3xl bg-white/10 flex items-center justify-center border border-white/10 group-hover:bg-white/20 transition-all duration-500 group-hover:rotate-6">
+                    <item.icon className="h-10 w-10 text-white" />
                   </div>
                   
-                  <div className="space-y-1">
-                    <h3 className="text-white font-black text-sm uppercase tracking-widest">{item.name}</h3>
-                    <p className="text-white/30 text-[9px] font-bold uppercase tracking-tight">{item.sub}</p>
+                  <div className="space-y-2">
+                    <h3 className="text-white font-black text-xl uppercase tracking-widest leading-none">{item.name}</h3>
+                    <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest">{item.sub}</p>
                   </div>
 
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ArrowRight className="h-4 w-4 text-white/50" />
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 pt-2">
+                    <ArrowRight className="h-5 w-5 text-white/50" />
                   </div>
                 </div>
               </div>
